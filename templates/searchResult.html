@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block search %}
+
+<p>Total Items: {{search['totalItems']}}</p>
+
+<table>
+  <tr>
+    <td>
+      <img src="{{search['items'][0]['volumeInfo']['imageLinks']['thumbnail']}}">
+      <p>Título: {{search['items'][0]['volumeInfo']['title']}}</p>
+      <p>Autor(a): {{search['items'][0]['volumeInfo']['authors']}}</p>
+    </td>
+    <td>
+      <img src="{{search['items'][2]['volumeInfo']['imageLinks']['thumbnail']}}">
+      <p>Título: {{search['items'][2]['volumeInfo']['title']}}</p>
+      <p>Autor(a): {{search['items'][2]['volumeInfo']['authors']}}</p>
+    </td>
+  </tr>
+</table>
+
+{% endblock %}

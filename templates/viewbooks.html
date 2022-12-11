@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block meta %}
+<title>Books | Catalogue{{ title }}</title>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">My Books:</h1>
+    <p class="text-success">{{ message }}</p>
+    {% for result in results %}
+    <li class="list-group-item">
+        <a>
+            {{ result.title }}, {{ result.author }}, {{ result.publishedDate }}, {{
+            results.id }}
+        </a>
+    </li>
+
+    <a href="{{ url_for('deletebook', book=result.id) }}">
+        <button class="btnvadd btn-primary btn-lg btn-block">Remove</button>
+    </a>
+
+    {% endfor %}
+
+    </ul>
+</div>
+{% endblock %}

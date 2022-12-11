@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block meta %}
+<title>Books | Catalogue{{ title }}</title>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">My Catalogue:</h1>
+    <ul class="list-group mx-w-500 mx-auto font-size-20">
+        <li class="list-group-item p-3">
+            Title: <strong name="book_title">{{ book.volumeInfo.title }}</strong>
+        </li>
+        <li class="list-group-item p-3">
+            Author: <strong name="book_author">{{ book.volumeInfo.authors[0] }}</strong>
+        </li>
+        <li class="list-group-item p-3">
+            Publication year: <strong name="publication_year">{{ book.volumeInfo.publishedDate }}</strong>
+        </li>
+        <li class="list-group-item p-3">
+            Book ID: <strong name="book_id">{{ book.id }}</strong>
+        </li>
+        <a href="{{ url_for('addbook', book=book.id) }}">
+            <button class="btn btn-outline-primary btn-lg btn-block">Add</button>
+        </a>
+    </ul>
+
+</div>
+<!--<table class="table">-->
+<!--			<tr>-->
+<!--				<th>Title</th>-->
+<!--				<th>Author</th>-->
+<!--				<th>Publication Year</th>-->
+<!--				<th>Book Id</th>-->
+<!--			</tr>-->
+
+<!--			&lt;!&ndash; here is a for-loop to give us all the socks &ndash;&gt;-->
+<!--			{% for sock in socks %}-->
+<!--			<tr>-->
+<!--				<td>{{ book.volumeInfo.title }}</td>-->
+<!--				<td>{{ book.volumeInfo.authors[1] }}</td>-->
+<!--				<td>{{ book.volumeInfo.publishedDate }}</td>-->
+<!--				<td>{{ book.id }}</td>-->
+<!--			</tr>-->
+<!--			{% endfor %}-->
+<!--		</table>-->
+{% endblock %}
